@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ccvault-6b3f9": {
+      "hosting": {
+        "CCSaverApp": [
+          "ccvault-6b3f9"
+        ]
+      }
+    }
+  }
+}

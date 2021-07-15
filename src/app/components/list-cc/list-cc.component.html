@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="title">VAULT</h5>
+        <table class="table">
+            <tbody>
+               <tr *ngFor="let card of listCards">
+                   <td>{{ card.owner }}</td>
+                   <td>{{ card.numberCC }}</td>
+                   <td>{{ card.expire }}</td>
+                   <td>
+                       <i class="far fa-edit text-info" (click)="editCC(card)"></i> 
+                       <i class="far fa-trash-alt text-danger" (click)="deleteCC(card.id)"></i> 
+                   </td>
+               </tr> 
+            </tbody>
+        </table>
+    </div>
+</div>

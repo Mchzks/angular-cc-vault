@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="title mb-3">
+            {{ title | uppercase }}
+            <div *ngIf="loading" class="spinner-border float-end" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </h5>
+        <form [formGroup]='form' (ngSubmit)="createCC()">
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                    <i class="fas fa-user-circle" [class.green-icon]="this.form.get('owner')?.valid" [class.red-icon]="this.form.get('owner')?.invalid && this.form.get('owner')?.touched"></i>
+                </span>
+                <input type="text" formControlName="owner" class="form-control" placeholder="Owner">
+            </div>
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                    <i class="fas fa-credit-card" [class.green-icon]="this.form.get('numberCC')?.valid" [class.red-icon]="this.form.get('numberCC')?.invalid && this.form.get('numberCC')?.touched"></i>
+                </span>
+                <input type="text" formControlName="numberCC" class="form-control" placeholder="Number" maxlength="16">
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="fas fa-calendar-alt" [class.green-icon]="this.form.get('expire')?.valid" [class.red-icon]="this.form.get('expire')?.invalid && this.form.get('expire')?.touched"></i>
+                        </span>
+                        <input type="text" formControlName="expire" class="form-control" placeholder="MM/YY" maxlength="5">
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="fas fa-key" [class.green-icon]="this.form.get('cvv')?.valid" [class.red-icon]="this.form.get('cvv')?.invalid && this.form.get('cvv')?.touched"></i>
+                        </span>
+                        <input type="password" formControlName="cvv" class="form-control" placeholder="CVV" maxlength="3">
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button [disabled]="form.invalid" class="btn btn-success btn-lg" type="submit">
+                    <i class="fas fa-database"></i>
+                    &nbsp;Accept
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
